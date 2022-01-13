@@ -4,9 +4,9 @@ import { Newsletter, ResourceHighlight, ResourceList } from "../components/impor
 export default function Home({ resources }) {
   return (
     <Fragment>
-      <ResourceHighlight resources={resources.slice(0, 2)} />
+      <ResourceHighlight resources={resources} />
       <Newsletter />
-      <ResourceList resources={resources.slice(0, 2)} />
+      <ResourceList resources={resources} />
     </Fragment>
   );
 }
@@ -21,7 +21,7 @@ export default function Home({ resources }) {
 // }
 
 export async function getServerSideProps() {
-  const resData = await fetch("http://localhost:3000/api/resources");
+  const resData = await fetch("http://localhost:3001/api/resources");
   const data = await resData.json();
 
   return {

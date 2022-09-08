@@ -1,12 +1,15 @@
 import { Fragment } from "react";
 import { Newsletter, ResourceHighlight, ResourceList } from "../components/imports";
+import Layout from "../components/Layout";
 
 export default function Home({ resources }) {
   return (
     <Fragment>
-      <ResourceHighlight resources={resources} />
-      <Newsletter />
-      <ResourceList resources={resources} />
+      <Layout>
+        <ResourceHighlight resources={resources} />
+        <Newsletter />
+        <ResourceList resources={resources} />
+      </Layout>
     </Fragment>
   );
 }
@@ -20,8 +23,8 @@ export default function Home({ resources }) {
 //   };
 // }
 
-export async function getServerSideProps() {
-  const resData = await fetch("http://localhost:3001/api/resources");
+export async function getServerSideProps({ params }) {
+  const resData = await fetch(`${process.env.API_URL}/resources/`);
   const data = await resData.json();
 
   return {

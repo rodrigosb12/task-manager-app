@@ -1,13 +1,8 @@
 import "bulma/css/bulma.min.css";
-import Layout from "../components/Layout";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+function MainApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
 }
 
-export default MyApp;
+export default MainApp;
